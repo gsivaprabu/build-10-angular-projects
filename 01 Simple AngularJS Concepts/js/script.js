@@ -1,6 +1,6 @@
-var app = angular.module("computer", ['ngRoute'])
-
+var app = angular.module("computer", ['ngRoute']) // Include dependencies here
 .config(['$routeProvider', function($routeProvider) {
+//Dependency Injection is called when you adding some modules like ngRoute
     $routeProvider.
     when('/main', {
         templateUrl: 'templates/main.html',
@@ -22,6 +22,8 @@ var app = angular.module("computer", ['ngRoute'])
 }])
 
 .controller('MainCtrl', ['$scope', '$http', function($scope, $http) {
+    console.log('$scope', $scope);
+    console.log('MainCtrl Called');
     $http.get('data/services.json').then(function(response) {
         $scope.services = response.data;
     })
